@@ -4,17 +4,10 @@ import Customer from './Customer';
 class App extends Component {
   constructor(props) {
     super(props);
-    if (localStorage) {
-      this.state = {
-        token: localStorage.getItem('credential') || null,
-        authorized: localStorage.getItem('credential') || false,
-      };
-    } else {
-      this.state = {
-        token: null,
-        authorized: false,
-      };
-    }
+    this.state = {
+      token: localStorage.getItem('credential') || null,
+      authorized: !!localStorage.getItem('credential') || false
+    };
   }
   setCredentials = (credential) => {
     this.setState(() => {

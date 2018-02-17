@@ -14,7 +14,7 @@ class Customer extends Component {
       <div className="registration">
         <Container>
           <Row>
-            <Col md="6"><Registration /></Col>
+            <Col md="6"><Registration setCredentials={this.props.setCredentials} /></Col>
             <Col md="6"><Login setCredentials={this.props.setCredentials} /></Col>
           </Row>
         </Container>

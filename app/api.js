@@ -15,6 +15,16 @@ export default {
     return axios.post(`${access.baseUrl}/sessions/create`, {
       email: data.email,
       password: data.password,
-    });
+    })
+      .catch((error) => {
+        alert(error.response.data);
+      });
+  },
+  getCurrentUserInfo: () => {
+    const token = localStorage.getItem('credential') || null;
+    return axios.get(`${access.baseUrl}/api/protected/user-info`, { headers: { Authorization: `Bearer ${token}` } })
+      .catch((error) => {
+        alert(error.response.data);
+      });
   },
 };

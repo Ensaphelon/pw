@@ -24,6 +24,7 @@
     "react/no-unknown-property": "off",
     "react/prefer-stateless-function": "off",
     "react/prop-types": "off",
-    "no-useless-constructor": "off"
+    "no-useless-constructor": "off",
+    "no-alert": "off",
   }
 }
