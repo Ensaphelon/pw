@@ -20,11 +20,30 @@ export default {
         alert(error.response.data);
       });
   },
-  getCurrentUserInfo: () => {
-    const token = localStorage.getItem('credential') || null;
-    return axios.get(`${access.baseUrl}/api/protected/user-info`, { headers: { Authorization: `Bearer ${token}` } })
-      .catch((error) => {
-        alert(error.response.data);
-      });
+  getUsers: (searchStr, token) => {
+    return axios({
+      method: 'POST',
+      url: `${access.baseUrl}/api/protected/users/list`,
+      headers: { Authorization: `Bearer ${token}` },
+      data: { filter: searchStr },
+    }).catch((error) => {
+      alert(error.response.data);
+    });
+  },
+  getTransactions: (token) => {
+    return axios.get(`${access.baseUrl}/api/protected/transactions`, { headers: { Authorization: `Bearer ${token}` } });
+  },
+  createTransaction: (name, amount, token) => {
+    return axios({
+      method: 'POST',
+      url: `${access.baseUrl}/api/protected/transactions`,
+      headers: { Authorization: `Bearer ${token}` },
+      data: { name, amount },
+    }).catch((error) => {
+      alert(error.response.data);
+    });
+  },
+  getCurrentUserInfo: (token) => {
+    return axios.get(`${access.baseUrl}/api/protected/user-info`, { headers: { Authorization: `Bearer ${token}` } });
   },
 };

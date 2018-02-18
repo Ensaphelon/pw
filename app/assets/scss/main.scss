@@ -1,10 +1,7 @@
 $color: #262828;
 $gray: #f6f6f6;
+$aqua: #BFFFFC;
 #root{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-pack: center;
   min-height: 100%;
   height: 100%;
 }
@@ -23,13 +20,69 @@ body {
   width: 100%;
 }
 
-.mui-appbar{
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-}
-
 .registration, .login{
   margin: 20px 0;
+}
+
+.user{
+  display: table;
+  height: 64px;
+  width: 100%;
+  padding: 0 20px;
+  box-sizing: border-box;
+  &-name, &-balance{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 16px;
+  }
+  &-name-logout{
+    color: $aqua;
+    font-size: 14px;
+  }
+  &-balance{
+    text-align: right;
+  }
+}
+
+.transactions{
+  &-list{
+    padding: 0;
+    margin: 10px 0;
+    list-style-type: none;
+  }
+}
+
+.no-suggestions{
+  .suggestions-list{
+    display: none;
+  }
+}
+
+.suggestions-list{
+  padding: 0;
+  list-style-type: none;
+}
+
+.suggestion{
+  cursor: pointer;
+  padding: 3px 5px;
+  &:hover{
+    background: #2196F3;
+    color: #fff;
+  }
+}
+
+.transaction{
+  &-properties{
+    &-list{
+      padding: 0;
+      list-style-type: none;
+      margin: 0;
+    }
+  }
+  &-property{
+    &-title{
+      font-weight: 600;
+    }
+  }
 }

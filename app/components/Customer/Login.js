@@ -8,9 +8,6 @@ import api from '../../api';
 class Login extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      token: null,
-    };
   }
   handleLogInForm = (event) => {
     event.preventDefault();
